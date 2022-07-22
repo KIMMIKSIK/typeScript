@@ -87,9 +87,6 @@
     new SweetCoffeeMaker(16),
   ];
 
-  const machine = CoffeeMaker.makeMachine(23);
-  const latteMachine = new CaffeeLatteMachine(23, "SSSS");
-  const sweetMachine = new SweetCoffeeMaker(23);
   machines.forEach((machine) => {
     console.log("----------------");
     machine.makeCoffee(1);
