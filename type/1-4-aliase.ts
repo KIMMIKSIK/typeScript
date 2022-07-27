@@ -13,6 +13,10 @@
     name: "msik",
     age: 16,
   };
+  //함수의 콜 시그니쳐 또한 타입 앨리어스라 할수 있을 것 같다.(약간 다름)리액트에서 함수를 props로 보낼때 어떻게 작동할지 미리 설계 가능하다
+  type Add = (a: number, b: number) => number;
+  //이렇게 하면 이후에 Add타입을 넣으면 그 함수인자의 2개의 매개변수와 반환값은 위에 적은것으로 추론됨
+
   /*
         String Literal Types
      */
@@ -22,4 +26,5 @@
   let json: Json = "json";
   type Boal = true;
   const isCat: Boal = true;
+  //변수가 타입으로 사용될 수는 없음!!!
 }

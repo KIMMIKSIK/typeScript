@@ -26,9 +26,20 @@
   let person2: string | null;
 
   //💩 unknown 타입이 없는 자바스크립트와 연동되는 타입스크립트 특성상 자스 라이브러리 활용등에 결과값의 타입을 모르는 경우가 있어서 존재함, 잘안쓰는것이 좋음
+  // 그래도 any와 다른점은 다른 any,unknown외의 타입의 변수에 할당이 불가하며 any타입과 다르게 프로퍼티 접근이 불가하여 좀 더 안전한 코딩이 가능하다.
   let notSure: unknown;
   notSure = "he";
   notSure = true;
+  // api 응답 결과값의 타입을 모른다면 unknown처리가 좋다
+  // 예시)
+  let a: unknown;
+
+  if (typeof a === "number") {
+    a = a + 123;
+  }
+  if (typeof a === "string") {
+    console.log(a.length);
+  }
 
   //💩 any 이것도 안쓰는게 좋음, unknown은 겸손하게 뭔지 잘 모르겠어느낌, any는 그냥 다담을수 있어의 느낌
   let anything: any = 0;

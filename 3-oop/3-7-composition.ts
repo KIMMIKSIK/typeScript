@@ -135,10 +135,12 @@
 
   // constructor로 전달되는 인수의 타입을 클래스가 아니라 그 구현 대상의 인터페이스로 지정함 (디 커플링)
   //
+
   const cheapMilkMaker = new CheapMilkSteamer();
   const fancyMilkMaker = new FancyMilkSteamer();
   const coldMilkMaker = new ColdMilkSteamer();
   const noMilk = new NoMilk();
+
   // Sugar
   const candySugar = new CandySugarMixer();
   const sugar = new SugarMixer();
