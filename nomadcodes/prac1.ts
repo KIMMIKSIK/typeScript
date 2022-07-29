@@ -1,4 +1,4 @@
-// 함수의 타입을 정리하는 이런 방식을 call signature라고 부른다.
+// 함수의 타입을 정리하는 이런 방식을 call signature라고 부른다.(이런 틀을 만듬으로서 함수 표현식으로 함수를 만들면 더이상 일일히 타입을 지정하면서 만들 필요없다.)
 type Add = (a: number, b: number) => number;
 
 const add: Add = (n, c) => n + c;
@@ -13,12 +13,12 @@ const add: Add = (n, c) => n + c;
 // 객체가 아닌 함수인 이유는 함수 자체가 js에서는 객체이기 때문이다.
 type AddOver = {
   (a: number, b: number): number;
-  (a: number, b: string): number;
+  (a: number, b: string, c: number): string;
 };
 
-const addOver: AddOver = (a, b) => {
+const addOver: AddOver = (a, b, c?: number) => {
   if (typeof b === "string") return a;
   return a + b;
 };
 
-console.log(addOver(3, "dd"));
+// console.log(addOver(3, "dd",3));

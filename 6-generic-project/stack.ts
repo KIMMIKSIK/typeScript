@@ -5,9 +5,9 @@
     readonly size: number;
   }
 
-  interface StackNode<K> {
-    readonly value: K;
-    readonly next?: StackNode<K>;
+  interface StackNode<T> {
+    readonly value: T;
+    readonly next?: StackNode<T>;
   }
 
   // readonly next: string[] 이런형태는 next프로퍼티를 리드온리로 만듬, 즉 객체의 주소값기준 얕은비교 변경막음
@@ -26,7 +26,7 @@
       if (this.size === this.capacity) {
         throw new Error("Stack if full");
       }
-      const node: StackNode<T> = {
+      const node = {
         value,
         next: this.head,
       };
@@ -46,13 +46,18 @@
       return node.value;
     }
   }
-  const stack = new StackImpl(10);
+  const stack = new StackImpl<string>(10);
   stack.push("msik 1");
   stack.push("bob 2");
-  stack.push(true);
-  stack.push(33);
-  stack.push({ hello: "안녕" });
+  stack.push("steve 3");
   while (stack.size !== 0) {
     console.log(stack.pop());
+  }
+  const stack2 = new StackImpl<number>(10);
+  stack2.push(12);
+  stack2.push(23);
+  stack2.push(35);
+  while (stack2.size !== 0) {
+    console.log(stack2.pop());
   }
 }
