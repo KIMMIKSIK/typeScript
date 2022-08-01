@@ -16,9 +16,22 @@ type AddOver = {
   (a: number, b: string, c: number): string;
 };
 
+// 이런 형태의 오버로딩도 가능함!! 이때는 따로 구분되어 사용되는 인수에 따라 알아서 key가 구분됨 옵셔널 같은 효과를 줄 필요가 없다.
+interface Ming<T> {
+  key<G>(a: number, b: string): T;
+}
+
 const addOver: AddOver = (a, b, c?: number) => {
   if (typeof b === "string") return a;
   return a + b;
 };
 
 // console.log(addOver(3, "dd",3));
+
+const kkk: Ming<number> = {
+  key<G>(a: number, b: string) {
+    return a;
+  },
+};
+
+const a = [1, 2, 3, 4];
